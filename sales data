@@ -1,0 +1,26 @@
+-- Create a staging table for raw sales data
+CREATE TABLE stg_sales (
+    transaction_id VARCHAR(50),
+    store_id INT,
+    product_id VARCHAR(20),
+    quantity INT,
+    unit_price DECIMAL(10,2),
+    transaction_date TIMESTAMP,
+    customer_id VARCHAR(20),
+    promotion_id VARCHAR(20),
+    raw_json JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    _batch_id VARCHAR(50)
+);
+
+CREATE TABLE dim_product (
+    product_id VARCHAR(20) PRIMARY KEY,
+    product_name VARCHAR(100),
+    category VARCHAR(50),
+    subcategory VARCHAR(50),
+    brand VARCHAR(50),
+    unit_cost DECIMAL(10,2),
+    valid_from DATE,
+    valid_to DATE
+);
+
