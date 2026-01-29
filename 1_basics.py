@@ -22,3 +22,6 @@ with ThreadPoolExecutor(max_workers=3) as executor:
     my_futures = executor.map(transformation,array)
 
 print(f"The returned values are {list(my_futures)}")
+
+
+print ("all done")
